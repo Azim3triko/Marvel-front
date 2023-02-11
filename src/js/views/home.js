@@ -10,7 +10,7 @@ export const Home = () => {
 	
 	<div className="container">
 		<div className="container m-2">
-			<h2 className="text-warning">Characters</h2>
+			<h2 className="text-warning">PIZZAS</h2>
 		<div className="d-flex flex-nowrap scroll">
 					{store.people.map((item, index) => {
 						return (
