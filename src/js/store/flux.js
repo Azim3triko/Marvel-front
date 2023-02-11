@@ -4,7 +4,7 @@ const API_URL = "https://www.swapi.tech/api";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			people: [],
+			character: [],
 			planets: [],
 			vehicles: [],
 			singleItem: {},
@@ -32,10 +32,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					alert("promesa rechazada, servidor caído")
 				};
 			},
-			getSingleItem: async (resource, uid) => {
+			getSingleItem: async (resource, id) => {
 				try { 
 					const response = await fetch (
-						`${API_URL}/${resource}/${uid}`
+						`${API_URL}/${resource}/${id}`
 					);
 					const body = await response.json();
 					if (response.status!== 200) {
@@ -45,7 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore ({
 					singleItem: {
 						...body.result.properties,
-						uid: body.result.uid,
+						uid: body.result.id,
 						description: body.result.description,
 					}	
 					})

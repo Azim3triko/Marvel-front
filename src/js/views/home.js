@@ -9,20 +9,20 @@ export const Home = () => {
 	return (
 	
 	<div className="container">
-		<div className="container m-2">
-			<h2 className="text-warning">PIZZAS</h2>
-		<div className="d-flex flex-nowrap scroll">
-					{store.people.map((item, index) => {
-						return (
-						<Card key={item.uid}
-							  item={item}
-							  resource="people"/>
-						);
-						}
-					)}
+			<div className="container m-2">
+				<h2 className="text-warning">CHARACTERS</h2>
+				<div className="d-flex flex-nowrap scroll">
+							{store.character.map((item, index) => {
+								return (
+								<Card key={item.id}
+									item={item}
+									resource="character"/>
+								);
+								}
+							)}
+				</div>
 			</div>
-			</div>
-
+{/* 
 			<div className="container m-2">
 			<h2 className="text-warning p-2">Planets</h2>
 			<div className="d-flex flex-nowrap scroll">
@@ -51,7 +51,7 @@ export const Home = () => {
 						}
 					)}
 			</div>
-		</div>
+		</div> */}
 	</div>			
 );
 }
