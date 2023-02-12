@@ -12,11 +12,11 @@ export const Navbar = () => {
 			<Link to="/" onClick={(e) => {
 				actions.removeSingleItem()
 			}}>
-				<img className="imagen" width="80px" src="https://webstockreview.net/images/starwars-clipart-logo-4.png"></img>
+				<img className="imagen" width="80px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/320px-Marvel_Logo.svg.png"></img>
 			</Link>
 			<div className="ml-auto">
 				<div className="dropdown">
-					<button className="btn btn-warning dropdown-toggle d-flex dd-items" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+					<button className="btn btn-danger dropdown-toggle d-flex dd-items" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
 						<p className="m-0 me-1">Favorites</p> 
 						<div className="circulo me-1">{store.favorites.length}</div>
 					</button>

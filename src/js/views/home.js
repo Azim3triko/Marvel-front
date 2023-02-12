@@ -12,9 +12,9 @@ export const Home = () => {
 	
 			<div className="container">
 					<div className="container m-2">
-							<h2 className="text-warning">MARVELs</h2>
+							<h2 className="text-danger text-center">MARVEL</h2>
 						<div className="d-flex flex-nowrap scroll">
-							
+
 									{store.characters.map((item, index) => {
 										return (
 										<Card key={item.id}
