@@ -1,12 +1,10 @@
-const API_URL = "https://www.swapi.tech/api";
+const API_URL = "https://gateway.marvel.com/v1/public/characters?ts=thesoer&apikey=001ac6c73378bbfff488a36141458af2&hash=72e5ed53d1398abb831c3ceec263f18b";
 
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			character: [],
-			planets: [],
-			vehicles: [],
+			characters: [],
 			singleItem: {},
 			favorites: [],
 			heartButtom: "outline-",
@@ -17,64 +15,68 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getItems: async (resource) => {
 				try { 
 					const response = await fetch (
-						`${API_URL}/${resource}`
+
+						`https://gateway.marvel.com/v1/public/characters?ts=thesoer&apikey=001ac6c73378bbfff488a36141458af2&hash=72e5ed53d1398abb831c3ceec263f18b`, 
 					);
 					const body = await response.json();
 					if (response.status!== 200) {
 						alert ("no pudimos cargar los personajes");
 						return;
 					}
+
+					console.log(body),
+
 					setStore ({
-				[`${resource}`]: body.results
+				[`${resource}`]: body.data.results
 					})
 				}	
 				catch (error) {
 					alert("promesa rechazada, servidor caído")
 				};
 			},
-			getSingleItem: async (resource, id) => {
-				try { 
+			 getSingleItem: async (resource, id) => {
+			 	try { 
 					const response = await fetch (
 						`${API_URL}/${resource}/${id}`
-					);
-					const body = await response.json();
+			 	);
+			 		const body = await response.json();
 					if (response.status!== 200) {
 						alert ("no pudimos cargar los planetas!");
 						return;
 					}
-					setStore ({
-					singleItem: {
-						...body.result.properties,
-						uid: body.result.id,
-						description: body.result.description,
+			 		setStore ({
+			 		singleItem: {
+			 			...body.data.results,
+						id: body.data.results.id,
+			 			description: body.data.results.description,
 					}	
-					})
-				} catch (error) {
+		 		})
+			 	} catch (error) {
 					alert ("promesa rechazada, servidor caído")
 					console.log(error)
 				}
-			},
-			removeSingleItem: async (resource) => {
+			 },
+			 removeSingleItem: async (resource) => {
 				
-					setStore ({
-					    singleItem: ""
-					})
-				},	
+			 		setStore ({
+			 		    singleItem: ""
+			 		})
+			 	},	
 
-				addFavorites: (resource) => {
-					setStore({
-						favorites: [...getStore().favorites, resource]
-					})
-					getActions().holdHeartButton()
+			 	addFavorites: (resource) => {
+			 		setStore({
+			 			favorites: [...getStore().favorites, resource]
+			 		})
+			 		getActions().holdHeartButton()
 
-				},
-				deleteFavorites: (resource) => {
+			 	},
+			 	deleteFavorites: (resource) => {
 					setStore({
 						favorites: [...getStore().favorites.filter((item,index)=>{
 							if (resource.name !== item.name) return true;
-						})]
+			 			})]
 					})
-				},
+			 	},
 				holdHeartButtom: () => {
 					setStore ({
 						heartButton: "",

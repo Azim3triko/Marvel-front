@@ -14,10 +14,9 @@ export const Card =({item, ...props}) => {
         }
     },[store.favorites]) 
     return (
-        <div className="card unic m-2 border-warning border-3" style={{minWidth: "250px"}}>
-                    <img src={`https://starwars-visualguide.com/assets/img/${props.resource === "people" 
-                    ? "characters"      
-                    : props.resource}/${item.id}.jpg`} className="card-img-top" alt="..."/>
+
+        <div className="card unic m-2 border-warning border-3" style={{minWidth: "250px"}} key={item.id}>
+                    <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} className="card-img-top" alt="..."/>
                     <div className="card-body bg-dark pb-2">
                         <h5 className="card-title text-white">{item.name}</h5>
                     <div className="container-fluid justify-content-between p-0 d-flex">

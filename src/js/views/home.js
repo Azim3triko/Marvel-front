@@ -1,60 +1,34 @@
 import React, {useContext} from "react";
 import {Context} from "../store/appContext";
+
 import { Card } from "../component/Card";
 import "../../styles/home.css";
 
 
 export const Home = () => {
-	const {store, actions} = useContext (Context);
+	const {store, actions} = useContext (Context)
+	
 	return (
 	
-	<div className="container">
-			<div className="container m-2">
-				<h2 className="text-warning">CHARACTERS</h2>
-				<div className="d-flex flex-nowrap scroll">
-							{store.character.map((item, index) => {
-								return (
-								<Card key={item.id}
-									item={item}
-									resource="character"/>
-								);
-								}
-							)}
-				</div>
-			</div>
-{/* 
-			<div className="container m-2">
-			<h2 className="text-warning p-2">Planets</h2>
-			<div className="d-flex flex-nowrap scroll">
-					{store.planets.map(
-					(item, index) => {
-						return (
-						<Card key={item.uid}
-							  item={item} 
-							  resource="planets"
-							  />
-						)
-						}
-					)};
-			</div>
-			</div>
-
-			<div className="container m-2">
-			<h2 className="text-warning p-2">Vehicles</h2>
-			<div className="d-flex flex-nowrap scroll">
-					{store.vehicles.map((item, index) => {
-						return (
-						<Card key={item.uid}
-							  item={item} 
-							  resource="vehicles"/>
-						);
-						}
-					)}
-			</div>
-		</div> */}
-	</div>			
-);
+			<div className="container">
+					<div className="container m-2">
+							<h2 className="text-warning">MARVELs</h2>
+						<div className="d-flex flex-nowrap scroll">
+							
+									{store.characters.map((item, index) => {
+										return (
+										<Card key={item.id}
+											item={item}
+											resource="characters"/>
+										);
+										}
+									)};
+						</div>
+					</div>
+			</div>			
+			)
 }
+
 
 
 
