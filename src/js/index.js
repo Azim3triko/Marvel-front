@@ -7,6 +7,7 @@ import "../styles/index.css";
 
 //import your own components
 import Layout from "./layout";
+import Register from "./component/register";
 
 //render your react application
-ReactDOM.render(<Layout />, document.querySelector("#app"));
+ReactDOM.render(<Register />, document.querySelector("#app"));

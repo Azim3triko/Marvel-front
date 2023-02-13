@@ -13,3 +13,12 @@ body {
 
     border-radius: 2%;
 }
+
+.form {
+        display: block;
+        width: 100%;
+        padding: 7rem;
+        margin: auto;
+        outline: none;
+
+}

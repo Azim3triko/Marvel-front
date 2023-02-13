@@ -5,39 +5,49 @@ import { useEffect } from "react";
 
 import "../../styles/home.css";
 
+
+
 export const Register = () => {
-  const [signIn, setSingIn] = useState({ user: "", password: "", email: "" });
+  const [signIn, setSignIn] = useState({ user: "", password: "", email: "" });
   const handleChange = (event) => {
     setSignIn({ ...signIn, [event.target.name]: event.target.value });
   };
 
-//   const navigate = useNavigate();
-//   const { store, actions } = useContext(Context);
-//   const params = useParams();
+  const navigate = useNavigate();   
+  const { store, actions } = useContext(Context);
+  const params = useParams();
 
-//   const handleLogin = async (data) => {
-//     // esta funcion registra usuario
-//     const result = await actions.signUp(data, params);
-//     if (result) {
-//       navigate("/home");
-//       alert("Se ha registrado correctamente");
-//     } else {
-//       alert("El usuario no puede ser creado. Revise e intenté de nuevo");
-//     }
-//   };
+  const handleLogin = async (data) => {    
 
-//   useEffect(() => {
-//     console.log(params);
-//   }, []);
+     const result = await actions.signUp(data, params);
+    if (result) {
+      navigate("/home");
+       alert("Se ha registrado correctamente");
+     } else {
+      alert("El usuario no puede ser creado. Revise e intenté de nuevo");
+     }
+   };
+
+  useEffect(() => {
+     console.log(params);
+   }, []);
 
   return (
 
-      <div className="container">
-        <div className="form sign-up-container">
+      <div className="flex-wrap" >
+        	 <nav className="navbar navbar-light bg-dark mb-3">
+              <div className="container">
+              <img className="imagen" width="80px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/320px-Marvel_Logo.svg.png"></img>
+            </div>
+           </nav>
+           
+      <div ClassName="container">
+        <div className="form sign-up-container text-center text-light">
             <h1>
-              Registrarse
+              Bienvenidos
             </h1>
-            <form className="formulario">
+            <form className="formulario" padding="3rem">
+               <label></label>
                 <input
                   type={"text"}
                   className="form-control"
@@ -48,7 +58,7 @@ export const Register = () => {
                 />
            
                 <div className="form-group">
-                    <label>Correo Electrónico</label>
+                    <label></label>
                     <input
                     type={"text"}
                     className="form-control"
@@ -59,7 +69,7 @@ export const Register = () => {
                     />
                 </div>
                     <div className="form-group">
-                        <label>Contraseña</label>
+                        <label></label>
                         <input
                         type={"password"}
                         className="form-control"
@@ -78,6 +88,8 @@ export const Register = () => {
                     >
                     Registrar
                     </button>
+                </div>
+            </form>
                     <p className="text-start fs-6 text-center">
                     ¿Ya tienes una cuenta?
                     <a href="/Login/" className="text-decoration-none">
@@ -85,10 +97,9 @@ export const Register = () => {
                     </a>
                     </p>
                 </div>
-            </form>
           </div>  
       </div>
-  
+    
   );
 };
 
