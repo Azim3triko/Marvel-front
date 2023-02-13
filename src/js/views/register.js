@@ -1,13 +1,23 @@
-import React, { useContext, useState } from "react"; 
+import React, { useContext, useState, setState } from "react"; 
 import { Context } from "../store/appContext";
 import { Router, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { Navbar} from "../component/navbar"
+
+
+
+const noNavbar = () => {
+    return (setState) => {
+      setState({
+        Navbar: false
+      });
+    };
+  };
 
 
 
 
-
-const Register = () => {
+export const Register = () => {
     const [signIn, setSignIn] = useState({ user: "", password: "", email: "" });
     const handleChange = (event) => {
           setSignIn({ ...signIn, [event.target.name]: event.target.value });
@@ -15,6 +25,8 @@ const Register = () => {
  
      const { store, actions } = useContext(Context);
      const navigate = useNavigate();
+
+     
          
 const handleLogin = async (data) => {
           //    // esta funcion registra usuario fetch (intento)
@@ -87,7 +99,7 @@ const handleLogin = async (data) => {
             </form>
                     <p className="text-start fs-6 text-center">
                     ¿Ya tienes una cuenta?
-                    <a href='/login' className="text-decoration-none">
+                    <a href='/home' className="text-decoration-none">
                         Iniciar Sesion
                     </a>
                     </p>
@@ -98,4 +110,4 @@ const handleLogin = async (data) => {
   );
 
 }
-export default Register;
+

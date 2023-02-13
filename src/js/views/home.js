@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {Context} from "../store/appContext";
 
 import { Card } from "../component/Card";
-import "../../styles/home.css";
+import "../../styles/index.css";
 
 
 export const Home = () => {
