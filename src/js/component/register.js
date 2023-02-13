@@ -13,24 +13,24 @@ export const Register = () => {
     setSignIn({ ...signIn, [event.target.name]: event.target.value });
   };
 
-  const navigate = useNavigate();   
-  const { store, actions } = useContext(Context);
-  const params = useParams();
+  // const navigate = useNavigate();   
+  // const { store, actions } = useContext(Context);
+  // const params = useParams();
 
-  const handleLogin = async (data) => {    
+  // const handleLogin = async (data) => {    
 
-     const result = await actions.signUp(data, params);
-    if (result) {
-      navigate("/home");
-       alert("Se ha registrado correctamente");
-     } else {
-      alert("El usuario no puede ser creado. Revise e intenté de nuevo");
-     }
-   };
+  //    const result = await actions.signUp(data, params);
+  //   if (result) {
+  //     navigate("/home");
+  //      alert("Se ha registrado correctamente");
+  //    } else {
+  //     alert("El usuario no puede ser creado. Revise e intenté de nuevo");
+  //    }
+  //  };
 
-  useEffect(() => {
-     console.log(params);
-   }, []);
+  // useEffect(() => {
+  //    console.log(params);
+  //  }, []);
 
   return (
 
@@ -41,7 +41,7 @@ export const Register = () => {
             </div>
            </nav>
            
-      <div ClassName="container">
+      <div className="container">
         <div className="form sign-up-container text-center text-light">
             <h1>
               Bienvenidos
@@ -92,7 +92,7 @@ export const Register = () => {
             </form>
                     <p className="text-start fs-6 text-center">
                     ¿Ya tienes una cuenta?
-                    <a href="/Login/" className="text-decoration-none">
+                    <a href="/login" className="text-decoration-none">
                         Iniciar Sesion
                     </a>
                     </p>
