@@ -1,36 +1,30 @@
 import React, { useContext, useState } from "react"; 
 import { Context } from "../store/appContext";
-import { useNavigate, useParams } from "react-router-dom";
+import { Router, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
-import "../../styles/home.css";
 
 
 
-export const Register = () => {
-  const [signIn, setSignIn] = useState({ user: "", password: "", email: "" });
-  const handleChange = (event) => {
-    setSignIn({ ...signIn, [event.target.name]: event.target.value });
-  };
 
-  // const navigate = useNavigate();   
-  // const { store, actions } = useContext(Context);
-  // const params = useParams();
-
-  // const handleLogin = async (data) => {    
-
-  //    const result = await actions.signUp(data, params);
-  //   if (result) {
-  //     navigate("/home");
-  //      alert("Se ha registrado correctamente");
-  //    } else {
-  //     alert("El usuario no puede ser creado. Revise e intenté de nuevo");
-  //    }
-  //  };
-
-  // useEffect(() => {
-  //    console.log(params);
-  //  }, []);
+const Register = () => {
+    const [signIn, setSignIn] = useState({ user: "", password: "", email: "" });
+    const handleChange = (event) => {
+          setSignIn({ ...signIn, [event.target.name]: event.target.value });
+           };
+ 
+     const { store, actions } = useContext(Context);
+     const navigate = useNavigate();
+         
+const handleLogin = async (data) => {
+          //    // esta funcion registra usuario fetch (intento)
+      const result = await actions.logIn(data);
+      if (result) {
+      navigate("/login");
+      } else {
+      alert("no se puedo iniciar sesión");
+      }
+      };
 
   return (
 
@@ -86,13 +80,14 @@ export const Register = () => {
                     onClick={() => handleLogin(signIn)}
                     style={{ backgroundColor: "#1a2537" }}
                     >
+                    
                     Registrar
                     </button>
                 </div>
             </form>
                     <p className="text-start fs-6 text-center">
                     ¿Ya tienes una cuenta?
-                    <a href="/login" className="text-decoration-none">
+                    <a href='/login' className="text-decoration-none">
                         Iniciar Sesion
                     </a>
                     </p>
@@ -101,6 +96,6 @@ export const Register = () => {
       </div>
     
   );
-};
 
+}
 export default Register;
