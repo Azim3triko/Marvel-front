@@ -9,8 +9,9 @@ export const Home = () => {
 	const {store, actions} = useContext (Context)
 	
 	return (
-	
-			<div className="container">
+			< >
+			{store.login ?
+				<div className="container">
 					<div className="container m-2">
 							<h2 className="text-danger text-center">MARVEL</h2>
 						<div className="d-flex flex-nowrap scroll">
@@ -25,7 +26,25 @@ export const Home = () => {
 									)};
 						</div>
 					</div>
-			</div>			
+			</div>:<button type="button" onClick={()=>actions.handleLogin()}>Hacer login</button>		
+			}
+			</>
+			// <div className="container">
+			// 		<div className="container m-2">
+			// 				<h2 className="text-danger text-center">MARVEL</h2>
+			// 			<div className="d-flex flex-nowrap scroll">
+
+			// 						{store.characters.map((item, index) => {
+			// 							return (
+			// 							<Card key={item.id}
+			// 								item={item}
+			// 								resource="characters"/>
+			// 							);
+			// 							}
+			// 						)};
+			// 			</div>
+			// 		</div>
+			// </div>			
 			)
 }
 

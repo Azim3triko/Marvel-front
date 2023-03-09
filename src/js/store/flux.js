@@ -8,6 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			singleItem: {},
 			favorites: [],
 			heartButtom: "outline-",
+			login: false,
 
 		},
 
@@ -34,6 +35,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					alert("promesa rechazada, servidor caído")
 				};
 			},
+			 handleLogin: ()=> {
+				setStore({
+					login: true
+				}) 
+
+			 },
+
+
 			 getSingleItem: async (resource, id) => {
 			 	try { 
 					const response = await fetch (

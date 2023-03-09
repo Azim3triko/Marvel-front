@@ -4,15 +4,9 @@ import { Router, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { Navbar} from "../component/navbar"
 
+// const [visible, setVisible] = useState (false);
 
 
-const noNavbar = () => {
-    return (setState) => {
-      setState({
-        Navbar: false
-      });
-    };
-  };
 
 
 
@@ -25,6 +19,9 @@ export const Register = () => {
  
      const { store, actions } = useContext(Context);
      const navigate = useNavigate();
+     const [visible, setVisible] = useState (false);
+    
+ 
 
      
          
@@ -40,12 +37,12 @@ const handleLogin = async (data) => {
 
   return (
 
-      <div className="flex-wrap" >
-        	 <nav className="navbar navbar-light bg-dark mb-3">
-              <div className="container">
-              <img className="imagen" width="80px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/320px-Marvel_Logo.svg.png"></img>
-            </div>
-           </nav>
+      // <div className="flex-wrap" >
+      //   	 <nav className="navbar navbar-light bg-dark mb-3">
+      //         <div className="container">
+      //         <img className="imagen" width="80px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/320px-Marvel_Logo.svg.png"></img>
+      //       </div>
+      //      </nav>
            
       <div className="container">
         <div className="form sign-up-container text-center text-light">
@@ -105,7 +102,7 @@ const handleLogin = async (data) => {
                     </p>
                 </div>
           </div>  
-      </div>
+      // </div>
     
   );
 
