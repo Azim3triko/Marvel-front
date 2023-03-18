@@ -20,20 +20,18 @@ export const Register = () => {
      const { store, actions } = useContext(Context);
      const navigate = useNavigate();
      const [visible, setVisible] = useState (false);
-    
- 
-
-     
-         
-const handleLogin = async (data) => {
-          //    // esta funcion registra usuario fetch (intento)
-      const result = await actions.logIn(data);
-      if (result) {
-      navigate("/login");
-      } else {
-      alert("no se puedo iniciar sesión");
-      }
-      };
+     const params = useParams();
+             
+     const handleLogin = async (data) => {
+            //    // esta funcion registra usuario fetch (intento)
+        const result = await actions.signUp(data, params);
+        if (result) {
+        navigate("/login");
+        alert("no se puedo iniciar sesión");
+        } else {
+            alert("El usuario no puede ser creado. Revise e intenté de nuevo");
+          }
+        };
 
   return (
 
@@ -96,7 +94,7 @@ const handleLogin = async (data) => {
             </form>
                     <p className="text-start fs-6 text-center">
                     ¿Ya tienes una cuenta?
-                    <a href='/home' className="text-decoration-none">
+                    <a href='/login' className="text-decoration-none">
                         Iniciar Sesion
                     </a>
                     </p>
